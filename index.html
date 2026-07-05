@@ -1,214 +1,336 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MKT STUDY COACHING CENTER</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MKT Study Coaching Center</title>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css for Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #FFD700; /* Yellow */
+            --bg-color: #0F0F11;      /* Premium Dark */
+            --card-bg: #1A1A1E;       /* Card Dark */
+            --text-color: #FFFFFF;
+            --text-muted: #B3B3B3;
+        }
 
-<link rel="stylesheet" href="style.css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
-}
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
 
-body{
-background:#0b0b0b;
-color:#fff;
-}
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(rgba(15,15,17,0.8), rgba(15,15,17,0.95)), url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1200') no-repeat center center/cover;
+        }
 
-header{
-background:#000;
-padding:15px 50px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-border-bottom:2px solid gold;
-}
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
 
-.logo{
-font-size:30px;
-font-weight:bold;
-color:gold;
-}
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-muted);
+        }
 
-nav a{
-color:white;
-text-decoration:none;
-margin:15px;
-font-size:18px;
-}
+        .cta-btn {
+            background-color: var(--primary-color);
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s;
+        }
 
-nav a:hover{
-color:gold;
-}
+        .cta-btn:hover {
+            transform: scale(1.05);
+        }
 
-.hero{
-height:90vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url("banner.jpg");
-background-size:cover;
-}
+        /* Section Styling */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.hero h1{
-font-size:55px;
-color:gold;
-}
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            position: relative;
+        }
 
-.hero p{
-font-size:22px;
-margin:20px;
-}
+        /* Director Section */
+        .director-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary-color);
+        }
 
-.btn{
-padding:15px 35px;
-background:gold;
-color:black;
-text-decoration:none;
-border-radius:30px;
-font-weight:bold;
-}
+        .director-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+        }
 
-.section{
-padding:70px;
-}
+        /* Courses Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
 
-.cards{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-justify-content:center;
-}
+        .card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #2A2A30;
+            transition: 0.3s;
+        }
 
-.card{
-background:#1d1d1d;
-padding:30px;
-width:280px;
-border-radius:10px;
-border:1px solid gold;
-text-align:center;
-}
+        .card:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
 
-footer{
-background:#000;
-padding:20px;
-text-align:center;
-border-top:2px solid gold;
-margin-top:40px;
-}
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
 
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px;
-border-radius:50%;
-font-size:25px;
-text-decoration:none;
-}
-</style>
+        /* Admission Form */
+        .form-container {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            background: #25252B;
+            border: 1px solid #3A3A42;
+            color: white;
+            border-radius: 8px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--primary-color);
+            color: black;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        /* Payment Section */
+        .pay-box {
+            text-align: center;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .pay-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #00b0ff;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Sticky WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            text-decoration: none;
+        }
+
+        /* Video Responsive Layout */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .director-container { flex-direction: column; text-align: center; }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
+    <!-- 1. Animated Hero Section -->
+    <div class="hero">
+        <h1 class="animate__animated animate__fadeInDown">MKT STUDY COACHING CENTER</h1>
+        <p class="animate__animated animate__fadeInUp animate__delay-1s">Learn Today • Lead Tomorrow</p>
+        <a href="#admission" class="cta-btn animate__animated animate__bounceIn animate__delay-2s">Online Admission Open</a>
+    </div>
 
-<div class="logo">MKT STUDY</div>
+    <!-- 2. Director Message -->
+    <section id="director">
+        <h2 class="section-title">Director का संदेश</h2>
+        <div class="director-container">
+            <!-- Tip: Yahan apni photo ka link dalein -->
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400" alt="Director" class="director-img">
+            <div>
+                <h3>निदेशक का नाम (यहाँ अपना नाम लिखें)</h3>
+                <p style="margin-top: 10px; color: var(--text-muted);">"हमारे संस्थान का मुख्य उद्देश्य ग्रामीण और शहरी क्षेत्रों के होनहार छात्रों को सही दिशा और बेहतरीन शिक्षा प्रदान करना है, ताकि वे सरकारी परीक्षाओं (जैसे BPSC, Civil Services) में सफलता हासिल कर सकें।"</p>
+            </div>
+        </div>
+    </section>
 
-<nav>
+    <!-- 3. Our Courses -->
+    <section id="courses">
+        <h2 class="section-title">हमारे Premium Courses</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>BPSC Target Batch</h3>
+                <p>Pre + Mains की पूरी तैयारी, डेली टेस्ट सीरीज और स्पेशल गाइडेंस के साथ।</p>
+            </div>
+            <div class="card">
+                <h3>General Studies (GS)</h3>
+                <p>History, Polity, Geography, aur Science का पूरा बेसिक से एडवांस सिलेबस।</p>
+            </div>
+            <div class="card">
+                <h3>Current Affairs Special</h3>
+                <p>दैनिक और मासिक समसामयिकी (Current Affairs) का विशेष विश्लेषण।</p>
+            </div>
+        </div>
+    </section>
 
-<a href="#">Home</a>
-<a href="#">About</a>
-<a href="#">Courses</a>
-<a href="#">Gallery</a>
-<a href="#">Contact</a>
+    <!-- 4. YouTube Videos Section -->
+    <section id="videos">
+        <h2 class="section-title">Demo & YouTube Classes</h2>
+        <div class="grid">
+            <div class="video-container">
+                <!-- Tip: Yahan apni YouTube video ka embed link dalein -->
+                <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
 
-</nav>
+    <!-- 5. Online Admission Form -->
+    <section id="admission">
+        <h2 class="section-title">Online Admission Form</h2>
+        <div class="form-container">
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"> <!-- Formspree ya Google Form connect kar sakte hain -->
+                <div class="form-group">
+                    <label>छात्र का पूरा नाम (Full Name)</label>
+                    <input type="text" name="name" placeholder="अपना नाम लिखें" required>
+                </div>
+                <div class="form-group">
+                    <label>मोबाइल नंबर (WhatsApp No.)</label>
+                    <input type="tel" name="phone" placeholder="91234xxxxx" required>
+                </div>
+                <div class="form-group">
+                    <label>कोर्स चुनें (Select Course)</label>
+                    <select name="course">
+                        <option value="bpsc">BPSC Complete Preparation</option>
+                        <option value="gs">General Studies (GS)</option>
+                        <option value="current">Current Affairs Special</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Admission Request Bhejein</button>
+            </form>
+        </div>
+    </section>
 
-</header>
+    <!-- 6. Fee Payment (UPI) -->
+    <section id="payment">
+        <h2 class="section-title">Online Fee Payment</h2>
+        <div class="pay-box">
+            <p>आप नीचे दिए गए बटन पर क्लिक करके सुरक्षित रूप से UPI (Google Pay, PhonePe, Paytm) के माध्यम से फीस जमा कर सकते हैं।</p>
+            <!-- Tip: Yahan apna UPI handle set karein -->
+            <a href="upi://pay?pa=your-upi-id@oksbi&pn=MKT%20Study&cu=INR" class="pay-btn">
+                <i class="fa-solid fa-credit-card"></i> Pay via UPI (PhonePe/GPay)
+            </a>
+        </div>
+    </section>
 
-<section class="hero">
-
-<div>
-
-<h1>MKT STUDY COACHING CENTER</h1>
-
-<p>Learn Today • Lead Tomorrow</p>
-
-<a class="btn" href="tel:7667026568">Call Now</a>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2 align="center">Our Courses</h2>
-
-<br><br>
-
-<div class="cards">
-
-<div class="card">
-<h3>BPSC</h3>
-<p>Complete Preparation</p>
-</div>
-
-<div class="card">
-<h3>SSC</h3>
-<p>Complete Preparation</p>
-</div>
-
-<div class="card">
-<h3>Railway</h3>
-<p>Complete Preparation</p>
-</div>
-
-<div class="card">
-<h3>Class 1-12</h3>
-<p>All Subjects</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
-
-<h2 align="center">Contact Us</h2>
-
-<br>
-
-<p align="center">
-
-📞 7667026568<br><br>
-
-📧 mktstudycoaching76@gmail.com<br><br>
-
-📍 Gandar Shiv Mandir Se Dakshin, Taraiya, Saran (841417)
-
-</p>
-
-</section>
-
-<footer>
-
-<h3>MKT STUDY COACHING CENTER</h3>
-
-<p>Director : PRABHAT PRATAP SINGH YADAV</p>
-
-</footer>
-
-<a class="whatsapp" href="https://wa.me/917667026568">💬</a>
+    <!-- 7. Sticky WhatsApp Chat -->
+    <!-- Tip: XXXXXXXXXX ki jagah apna 10 digit ka WhatsApp number daal dein -->
+    <a href="https://wa.me/91XXXXXXXXXX?text=Hello,%20MKT%20Study%20mein%20Admission%20ki%20jankari%20chahiye." class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
 </body>
 </html>
